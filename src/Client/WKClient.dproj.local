@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/12/28 12:09:08.000.668,=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/12/28 13:12:04.000.317,C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\View\Pessoa.pas=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/12/28 13:12:04.000.317,C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\View\Pessoa.dfm=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/12/28 13:12:17.000.019,C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\Project1.dproj=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2022/12/29 09:50:17.000.800,=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\Unit1.pas</Transaction>
+    <Transaction>2022/12/29 09:50:26.000.023,=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\Unit2.pas</Transaction>
+    <Transaction>2022/12/29 09:52:11.000.237,C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\Unit2.pas=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\View\Form_Pesquisa.pas</Transaction>
+    <Transaction>2022/12/29 09:52:11.000.237,C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\Unit2.dfm=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\View\Form_Pesquisa.dfm</Transaction>
+    <Transaction>2022/12/30 12:25:21.000.517,C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\CadastroDePessoas.dproj=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\Project1.dproj</Transaction>
+    <Transaction>2022/12/30 13:11:51.000.309,C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\CadastroDePessoasClient.dproj=C:\Users\worel\Documents\Embarcadero\Studio\Projects\Client\CadastroDePessoas.dproj</Transaction>
+    <Transaction>2023/02/27 19:28:54.000.335,C:\Users\Administrador\Desktop\WK\Worell97-TesteWK-master (mais proximo)\TesteWK-master\Client\CadastroDePessoasClient.dproj=C:\Users\Administrador\Desktop\WK\Worell97-TesteWK-master (mais proximo)\TesteWK-master\Client\WKClient.dproj</Transaction>
+    <Transaction>2023/02/27 19:45:22.000.295,C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\ufrmPessoa.dfm=C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\Pessoa.dfm</Transaction>
+    <Transaction>2023/02/27 19:45:22.000.295,C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\ufrmPessoa.pas=C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\Pessoa.pas</Transaction>
+    <Transaction>2023/02/27 19:49:04.000.642,C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\ufrmCadastroPessoa.dfm=C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\ufrmPessoa.dfm</Transaction>
+    <Transaction>2023/02/27 19:49:04.000.642,C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\ufrmCadastroPessoa.pas=C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\ufrmPessoa.pas</Transaction>
+    <Transaction>2023/02/27 19:49:29.000.268,C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\View\Form_Pesquisa.pas=</Transaction>
+    <Transaction>2023/02/28 07:17:32.000.178,=C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\Unit1.pas</Transaction>
+    <Transaction>2023/02/28 07:18:05.000.952,C:\Users\Administrador\Desktop\WK\MeuTeste\src\Util\uFuncoes.pas=C:\Users\Administrador\Desktop\WK\MeuTeste\src\Client\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
