@@ -40,7 +40,7 @@ var
 
 implementation
 
-{%CLASSGROUP 'System.Classes.TPersistent'}
+{%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
 

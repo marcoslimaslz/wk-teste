@@ -4,36 +4,43 @@ object wdmPrincipal: TwdmPrincipal
       Default = True
       Name = 'DefaultHandler'
       PathInfo = '/'
+      OnAction = wdmPrincipalDefaultHandlerAction
     end
     item
       MethodType = mtPost
       Name = 'POSTPessoa'
       PathInfo = '/pessoa'
+      OnAction = wdmPrincipalPOSTPessoaAction
     end
     item
       MethodType = mtGet
       Name = 'GETPessoa'
       PathInfo = '/pessoa'
+      OnAction = wdmPrincipalGETPessoaAction
     end
     item
       MethodType = mtDelete
       Name = 'DELETEPessoa'
       PathInfo = '/pessoa'
+      OnAction = wdmPrincipalDELETEPessoaAction
     end
     item
       MethodType = mtPatch
       Name = 'PATCHPessoa'
       PathInfo = '/pessoa'
+      OnAction = wdmPrincipalPATCHPessoaAction
     end
     item
       MethodType = mtGet
       Name = 'ExecutaIntegrador'
       PathInfo = '/endereco_integracao'
+      OnAction = wdmPrincipalExecutaIntegradorAction
     end
     item
       MethodType = mtPost
       Name = 'PessoasLote'
       PathInfo = '/pessoas'
+      OnAction = wdmPrincipalPessoasLoteAction
     end>
   Height = 230
   Width = 415
