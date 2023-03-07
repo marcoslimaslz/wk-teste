@@ -53,7 +53,6 @@ begin
   Self.InternalClear();
 end;
 
-
 procedure TDtoPessoa.InternalClear;
 begin
   Fidpessoa := 0;
@@ -64,7 +63,6 @@ begin
   Fflnatureza := 0;
   Fdscep := EmptyStr;
 end;
-
 
 procedure TDtoPessoa.Setdscep(const Value: System.String);
 begin

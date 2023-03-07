@@ -59,7 +59,6 @@ begin
   Self.InternalClear();
 end;
 
-
 procedure TDTOJsonObject.InternalClear;
 begin
   FLogradouro := EmptyStr;
