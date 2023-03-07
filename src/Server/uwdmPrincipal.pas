@@ -8,7 +8,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.ConsoleUI.Wait,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.UI, REST.JSON, System.JSON,
-  uThreadEnderecos;
+  uThreadEnderecos, System.Generics.Collections;
 
 type
   TwdmPrincipal = class(TWebModule)
@@ -172,25 +172,52 @@ end;
 procedure TwdmPrincipal.wdmPrincipalPessoasLoteAction(Sender: TObject;
   Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
 var
-  JSonValue: TJSONArray;
-  JSonArray: TJSONArray;
-  ArrayElement: TJSonValue;
   ttyDTOPessoa: TDTOPessoa;
   ttyDAOPessoa: TDAOPessoa;
+  sJObjetoElement: TJSONObject;
+  JSonValueElement: TJSONArray;
+  ArrayElement: TJSonValue;
+  JsonArrayElement: TJSONArray;
+  sjsonString: TJSonValue;
+  sjsonValue: TJSonValue;
+  i: Integer;
 begin
   ttyDTOPessoa := TDTOPessoa.Create;
   ttyDAOPessoa := TDAOPessoa.Create(fdcConexao);
 
-  JSonValue := TJSONObject.ParseJSONValue(Request.Content) as TJsonArray;
+  sJObjetoElement := TJSONObject.ParseJSONValue(Request.Content) as TJSONObject;
+  JSonValueElement := sJObjetoElement.FindValue('elements') as TJSONArray;
+  JsonArrayElement := JSonValueElement.Items[0].FindValue('members') as TJSONArray;
+
   try
-    for ArrayElement in JsonArray do
+    for i := 0 to Pred(JSonValueElement.Count) do
     begin
+      JsonArrayElement := JSonValueElement.Items[i].FindValue('members') as TJSONArray;
+
+      for ArrayElement in JsonArrayElement do
+      begin
+        sjsonString := ArrayElement.FindValue('jsonString');
+        sjsonValue := ArrayElement.FindValue('jsonValue');
+
+        if sjsonString.FindValue('value').Value = 'flnatureza' then
+        begin
+          ttyDTOPessoa.flnatureza := sjsonValue.FindValue('value').Value.ToInteger;
+        end else if sjsonString.FindValue('value').Value = 'dsdocumento' then
+        begin
+          ttyDTOPessoa.dsdocumento := sjsonValue.FindValue('value').Value;
+        end else if sjsonString.FindValue('value').Value = 'nmprimeiro' then
+        begin
+          ttyDTOPessoa.nmprimeiro := sjsonValue.FindValue('value').Value;
+        end else if sjsonString.FindValue('value').Value = 'nmsegundo' then
+        begin
+          ttyDTOPessoa.nmsegundo := sjsonValue.FindValue('value').Value;
+        end else if sjsonString.FindValue('value').Value = 'dscep' then
+        begin
+          ttyDTOPessoa.dscep := sjsonValue.FindValue('value').Value;
+        end;
+      end;
+
       try
-        ttyDTOPessoa.flnatureza := ArrayElement.FindValue('flnatureza').Value.ToInteger;
-        ttyDTOPessoa.dsdocumento := ArrayElement.FindValue('dsdocumento').Value;
-        ttyDTOPessoa.nmprimeiro := ArrayElement.FindValue('nmprimeiro').Value;
-        ttyDTOPessoa.nmsegundo := ArrayElement.FindValue('nmsegundo').Value;
-        ttyDTOPessoa.dscep := ArrayElement.FindValue('dscep').Value;
         ttyDTOPessoa.dtregistro := Now;
         ttyDAOPessoa.Save(ttyDTOPessoa);
       finally
@@ -223,7 +250,7 @@ begin
     try
       ttyDAOPessoa.Save(ttyDTOPessoa);
     except
-      Response.StatusCode := 501;    
+      Response.StatusCode := 501;
       Response.Content := '{"message": "Erro ao cadastrar pessoa."}';
       exit;
     end;

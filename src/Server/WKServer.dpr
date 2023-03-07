@@ -153,8 +153,8 @@ end;
 
 begin
   try
-  if WebRequestHandler <> nil then
-    WebRequestHandler.WebModuleClass := WebModuleClass;
+    if WebRequestHandler <> nil then
+      WebRequestHandler.WebModuleClass := WebModuleClass;
     RunServer(8000);
   except
     on E: Exception do
