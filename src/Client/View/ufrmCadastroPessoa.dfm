@@ -2,8 +2,8 @@ object frmCadastroPessoa: TfrmCadastroPessoa
   Left = 0
   Top = 0
   Caption = 'WK - Cadastro de pessoas'
-  ClientHeight = 185
-  ClientWidth = 387
+  ClientHeight = 482
+  ClientWidth = 724
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,6 +11,7 @@ object frmCadastroPessoa: TfrmCadastroPessoa
   Font.Name = 'Tahoma'
   Font.Style = []
   Position = poScreenCenter
+  OnCreate = FormCreate
   TextHeight = 13
   object lblNome: TLabel
     Left = 90
@@ -27,7 +28,7 @@ object frmCadastroPessoa: TfrmCadastroPessoa
     Caption = 'Sobrenome:'
   end
   object lblDocumento: TLabel
-    Left = 8
+    Left = 10
     Top = 130
     Width = 58
     Height = 13
@@ -54,6 +55,34 @@ object frmCadastroPessoa: TfrmCadastroPessoa
     Height = 13
     Caption = 'C'#243'digo: '
   end
+  object lblLogradouro: TLabel
+    Left = 10
+    Top = 180
+    Width = 55
+    Height = 13
+    Caption = 'Logradouro'
+  end
+  object lblBairro: TLabel
+    Left = 220
+    Top = 180
+    Width = 28
+    Height = 13
+    Caption = 'Bairro'
+  end
+  object lblCidade: TLabel
+    Left = 10
+    Top = 230
+    Width = 33
+    Height = 13
+    Caption = 'Cidade'
+  end
+  object lblUF: TLabel
+    Left = 310
+    Top = 230
+    Width = 13
+    Height = 13
+    Caption = 'UF'
+  end
   object edNome: TEdit
     Left = 90
     Top = 95
@@ -69,7 +98,7 @@ object frmCadastroPessoa: TfrmCadastroPessoa
     TabOrder = 4
   end
   object edDocumento: TEdit
-    Left = 8
+    Left = 10
     Top = 145
     Width = 121
     Height = 21
@@ -87,10 +116,13 @@ object frmCadastroPessoa: TfrmCadastroPessoa
     Top = 145
     Width = 100
     Height = 21
+    MaxLength = 9
     TabOrder = 7
+    OnExit = edCepExit
+    OnKeyDown = edCepKeyDown
   end
   object edIdPessoa: TEdit
-    Left = 8
+    Left = 10
     Top = 95
     Width = 75
     Height = 21
@@ -102,12 +134,12 @@ object frmCadastroPessoa: TfrmCadastroPessoa
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 387
+    Width = 724
     Height = 29
     ButtonHeight = 25
     Caption = 'ToolBar1'
     TabOrder = 0
-    ExplicitWidth = 383
+    ExplicitWidth = 720
     object btnSalvar: TButton
       Left = 0
       Top = 0
@@ -167,11 +199,11 @@ object frmCadastroPessoa: TfrmCadastroPessoa
   object pnlPesquisa: TPanel
     Left = 0
     Top = 29
-    Width = 387
+    Width = 724
     Height = 40
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 383
+    ExplicitWidth = 720
     object Label1: TLabel
       Left = 10
       Top = 10
@@ -180,14 +212,14 @@ object frmCadastroPessoa: TfrmCadastroPessoa
       Caption = 'Procurar por (ID):'
     end
     object edtPesquisar: TEdit
+      Tag = 1
       Left = 110
       Top = 10
       Width = 150
       Height = 21
-      Color = clBtnFace
+      Color = clWhite
       NumbersOnly = True
       TabOrder = 0
-      OnKeyPress = edtPesquisarKeyPress
     end
     object btnPesquisar: TButton
       Left = 270
@@ -198,14 +230,49 @@ object frmCadastroPessoa: TfrmCadastroPessoa
       TabOrder = 1
     end
   end
+  object edLogradouro: TEdit
+    Left = 10
+    Top = 195
+    Width = 200
+    Height = 21
+    Color = clBtnFace
+    MaxLength = 9
+    ReadOnly = True
+    TabOrder = 8
+  end
+  object edBairro: TEdit
+    Left = 220
+    Top = 195
+    Width = 140
+    Height = 21
+    ReadOnly = True
+    TabOrder = 9
+  end
+  object edCidade: TEdit
+    Left = 10
+    Top = 245
+    Width = 290
+    Height = 21
+    ReadOnly = True
+    TabOrder = 10
+  end
+  object edUF: TEdit
+    Left = 310
+    Top = 245
+    Width = 50
+    Height = 21
+    ReadOnly = True
+    TabOrder = 11
+  end
   object RESTClient: TRESTClient
     Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
     AcceptCharset = 'utf-8, *;q=0.8'
     BaseURL = 'http://localhost:8000'
+    ContentType = 'application/x-www-form-urlencoded'
     Params = <>
     SynchronizedEvents = False
-    Left = 496
-    Top = 368
+    Left = 376
+    Top = 344
   end
   object RESTRequest: TRESTRequest
     Client = RESTClient
@@ -213,12 +280,12 @@ object frmCadastroPessoa: TfrmCadastroPessoa
     Resource = 'pessoa'
     Response = RESTResponse1
     SynchronizedEvents = False
-    Left = 552
-    Top = 248
+    Left = 312
+    Top = 296
   end
   object RESTResponse1: TRESTResponse
-    Left = 504
-    Top = 320
+    Left = 416
+    Top = 248
   end
   object RESTRequestIntegrador: TRESTRequest
     AssignedValues = [rvReadTimeout]
@@ -228,8 +295,8 @@ object frmCadastroPessoa: TfrmCadastroPessoa
     Response = RESTResponse1
     ReadTimeout = 3000000
     SynchronizedEvents = False
-    Left = 592
-    Top = 320
+    Left = 576
+    Top = 256
   end
   object RESTLote: TRESTRequest
     Client = RESTClient
@@ -238,12 +305,12 @@ object frmCadastroPessoa: TfrmCadastroPessoa
     Resource = 'pessoas'
     Response = RESTResponse1
     SynchronizedEvents = False
-    Left = 608
-    Top = 368
+    Left = 520
+    Top = 336
   end
   object ActionList1: TActionList
-    Left = 544
-    Top = 200
+    Left = 488
+    Top = 160
     object actSalvar: TAction
       Caption = '&Salvar'
       OnExecute = actSalvarExecute
